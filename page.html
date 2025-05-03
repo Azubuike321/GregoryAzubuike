@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+    <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746232829/azubuike_greg_Design_a_bold__modern_logo_using_the_letter__G__as_d7fcb3ee-2fb3-469d-b2bf-65d895089ea6_r49lv7.png" alt="Loading..." class="w-24 h-24 animate-bounce" />
+  </div>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gregory Azubuike | Virtual Assistant & Visual Creative</title>
+  <link rel="icon" href="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #2b003d, #04001b 70%);
+      overflow-x: hidden;
+    }
+    .hero-title { position: relative; color: #fff; }
+    .hero-title::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
+      100% { transform: translateX(100%); }
+    }
+    .stats-card {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 1rem;
+      padding: 2rem;
+      color: #fff;
+      background-size: 200% 200%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      animation: gradientStat 6s ease infinite, cardPulse 4s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .stats-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,255,255,0.6);
+    }
+    .stats-card:nth-child(1) { background-image: linear-gradient(45deg, #ff7e5f, #feb47b); }
+    .stats-card:nth-child(2) { background-image: linear-gradient(45deg, #6a11cb, #2575fc); }
+    .stats-card:nth-child(3) { background-image: linear-gradient(45deg, #43cea2, #185a9d); }
+    .stats-card:nth-child(4) { background-image: linear-gradient(45deg, #811a7a, #185a9d); }
+    .stats-card:nth-child(5) { background-image: linear-gradient(45deg, #4d02b7, #185a9d); }
+    .stats-card:nth-child(6) { background-image: linear-gradient(45deg, #5b6510, #185a9d); }
+    @keyframes gradientStat {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes cardPulse {  /* match class animation */
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .btn-neon {
+      position: relative; color: #fff; background: #8e2de2;
+      padding: 0.75rem 1.5rem; border-radius: 0.5rem;
+      overflow: hidden; z-index: 1;
+    }
+    .btn-neon::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 60%);
+      animation: glow 2s ease infinite;
+      z-index: -1;
+    }
+    @keyframes glow {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.7; }
+      50% { transform: translate(20%,20%) scale(1.2); opacity: 0.3; }
+    }
+  </style>
+</head>
+<script>
+  window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.transition = 'opacity 0.5s ease-out';
+      setTimeout(() => preloader.style.display = 'none', 500);
+    }
+  });
+</script>
+<script>
+  window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.transition = 'opacity 0.5s ease-out';
+      setTimeout(() => preloader.style.display = 'none', 500);
+    }
+  });
+</script>
+<body>
+  <header class="w-full bg-gray-800 px-4 py-4 flex items-center justify-between sticky top-0 z-50">
+    <h1 class="text-xl font-bold shimmer"><span class="text-white">Gregory </span><span class="text-purple-500">Azubuike</span></h1>
+    <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <nav id="mobile-menu"
+      class="hidden md:flex md:items-center md:gap-6 absolute md:static bg-gray-800 top-16 left-0 w-full md:w-auto flex-col md:flex-row p-4 md:p-0">
+      <a href="#hero" class="hover:text-green-400 text-white block py-2 ">Home</a>
+      <a href="#about" class="hover:text-green-400 block py-2 text-white">About</a>
+      <a href="#services" class="hover:text-green-400 block py-2 text-white">Services</a>
+      <a href="#portfolio" class="hover:text-green-400 block py-2 text-white">Portfolio</a>
+      <a href="#testimonials" class="hover:text-green-400 block py-2 text-white">Testimonials</a>
+      <a href="#contact" class="hover:text-green-400 block py-2 text-white">Contact</a>
+    </nav>
+  </header>  
+
+  <!-- Hero -->
+  <section class="flex flex-wrap items-start justify-between gap-10 p-10" id="home">
+    <div class="max-w-xl">
+      <h1 class="hero-title text-4xl md:text-5xl font-bold leading-tight">Virtual Assistant & <span class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Visual Creative</span> for Digital Brands</h1>
+      <p class="mt-4 text-lg text-gray-300">I help digital communities grow through strategic support, impactful visuals, and compelling content.</p>
+      <div class="mt-6 space-x-4">
+        <a href="#contact" class="btn-neon inline-block font-semibold">Let's Work Together</a>
+        <a href="#services" class="btn-neon inline-block font-semibold">Explore Services</a>
+      </div>
+    </div>
+    <div class="relative w-[380px] h-[300px] bg-zinc-800 rounded-xl shadow-lg overflow-hidden">
+      <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_0yfsb3a1.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+      <div class="absolute bottom-4 left-4 right-4 bg-black/70 p-4 rounded-lg text-gray-200">
+        <div class="flex justify-between items-center text-sm">
+          <p id="chatText">Hi there! I'm Gregory, your Web3 virtual assistant. How can I help your community grow today?</p>
+          <button onclick="showNextMessage()" class="text-purple-300 text-xl transition">➡️</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats with Vanta.js -->
+  <section id="stats" class="relative grid grid-cols-1 md:grid-cols-3 gap-6 p-6 text-center bg-zinc-900 bg-opacity-50 rounded-xl backdrop-blur">
+    <div id="vanta-stats-bg" class="absolute inset-0"></div>
+    <div class="stats-card relative z-10">
+      <h2 class="text-4xl font-extrabold" id="stat1">0+</h2>
+      <p class="mt-2 text-gray-200">Years of Experience</p>
+    </div>
+    <div class="stats-card relative z-10">
+      <h2 class="text-4xl font-extrabold" id="stat2">0+</h2>
+      <p class="mt-2 text-gray-200">Designs Created</p>
+    </div>
+    <div class="stats-card relative z-10">
+      <h2 class="text-4xl font-extrabold" id="stat3">0+</h2>
+      <p class="mt-2 text-gray-200">Campaigns Led</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 bg-zinc-800 bg-opacity-50 text-gray-200 backdrop-blur rounded-xl mt-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold mb-4 text-white">About Me</h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        I'm Gregory Azubuike — a detail-oriented Virtual Assistant and Visual Creative with over 3 years of experience supporting Web3 startups and DAOs. 
+        I combine technical know-how with strong design instincts to help communities grow, create engaging content, and stay organized. 
+        Whether it's managing social channels, designing assets, or coordinating campaigns, I bring clarity and creativity to every project.
+      </p>
+    </div>
+  </section>
+
+  <section id="services" class="py-16 px-6 mt-10 text-white">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-extrabold">Services</h2>
+      <p class="text-gray-300 mt-2 text-lg">Here's what I can do for your digital brand:</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Service 1 -->
+      <div class="stats-card">
+        <h3 class="text-xl font-bold mb-2">Community Management</h3>
+        <p class="text-gray-100">Moderate chats, engage audiences, and grow active online communities with tailored strategies.</p>
+      </div>
+      <!-- Service 2 -->
+      <div class="stats-card">
+        <h3 class="text-xl font-bold mb-2">Content Creation</h3>
+        <p class="text-gray-100">Design graphics, write copy and schedule engaging posts across multiple platforms.</p>
+      </div>
+      <!-- Service 3 -->
+      <div class="stats-card">
+        <h3 class="text-xl font-bold mb-2">Admin Support</h3>
+        <p class="text-gray-100">Handle DMs, emails, document prep and task coordination so your team stays focused.</p>
+      </div>
+      <!-- Service 4 -->
+      <div class="stats-card">
+        <h3 class="text-xl font-bold mb-2">Customer Support</h3>
+        <p class="text-gray-100">Respond to community questions and provide helpful, human-centered support.</p>
+      </div>
+      <!-- Service 5 -->
+      <div class="stats-card">
+        <h3 class="text-xl font-bold mb-2">Brand Asset Design</h3>
+        <p class="text-gray-100">Create visual assets that align with your brand identity from logos to banners and slides.</p>
+      </div>
+      <!-- Service 6 -->
+      <div class="stats-card">
+        <h3 class="text-xl font-bold mb-2">Website Design & Edits</h3>
+
+        <p class="text-gray-100">design and create you website,from concept to execution.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="portfolio" class="relative py-24 bg-[#0d0d0f] overflow-hidden z-10">
+    <!-- Glowing Background Lights -->
+    <div class="absolute top-[-80px] left-[-100px] w-[400px] h-[400px] bg-purple-500 opacity-30 rounded-full blur-[150px] z-0"></div>
+    <div class="absolute bottom-[-100px] right-[-120px] w-[500px] h-[500px] bg-blue-400 opacity-20 rounded-full blur-[160px] z-0"></div>
+  
+    <!-- Heading -->
+    <div class="relative z-10 text-center mb-16 px-4">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Portfolio</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        A glimpse into the kind of high-quality virtual assistance and creative support I provide.
+      </p>
+    </div>
+  
+    <!-- Portfolio Grid -->
+    <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6 md:px-20">
+      <!-- Card 1 -->
+      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
+        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746224620/Navigating_the_business_hierarchy_can_be_challenging__k6zlyh.jpg" alt="Admin Tasks" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Admin Tasks</h3>
+          <p class="text-gray-300 text-sm">Organizing schedules, managing to-do lists, and keeping operations on track.</p>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
+        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746224639/social_media_marketing_udqjpe.jpg" alt="Social Media Management" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Social Media Management</h3>
+          <p class="text-gray-300 text-sm">Crafting and scheduling engaging posts across platforms to grow your online presence.</p>
+        </div>
+      </div>
+  
+      <!-- Card 3 -->
+      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
+        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746224559/Change_Your_Calendar_Change_Your_Life_ahqbi8.jpg" alt="Content Scheduling" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Content Scheduling</h3>
+          <p class="text-gray-300 text-sm">Planning and organizing content across calendars for consistency and strategy.</p>
+        </div>
+      </div>
+  
+      <!-- Card 4 -->
+      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
+        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746225960/I_had_some_great_customer_service_this_week_.._I_m_in_the_process_of_converting_our_garage_into_a_home_gym._Having_ordered_the_flooring_yesterday_evening_this_morning_I_r_1_o8ts33.jpg" alt="Customer Support" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Customer Support</h3>
+          <p class="text-gray-300 text-sm">Prompt, empathetic communication to ensure customer satisfaction and retention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
+  <script>
+    VANTA.NET({ el: "#vanta-stats-bg", backgroundColor: 0x04001b, color: 0xff7e5f, maxDistance: 20.00, points: 15.00, spacing: 25.00 });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      ['stat1','stat2','stat3'].forEach((id,i) => animateValue(id,0,[3,1000,10][i],1500));
+    });
+    function animateValue(id, start, end, duration) {
+      let range = end - start, current = start, increment = end > start ? 1 : -1;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      let obj = document.getElementById(id);
+      let timer = setInterval(() => { current += increment; obj.textContent = current + '+'; if (current === end) clearInterval(timer); }, stepTime);
+    }
+    const messages = [
+      "Hi there! I'm Gregory, your Web3 virtual assistant. How can I help your community grow today?",
+      "We need help with our community engagement and social media presence.",
+      "Perfect! I specialize in creating engaging content and managing Web3 communities."
+    ]; let msgIdx=0;
+    function showNextMessage() { msgIdx++; document.getElementById('chatText').textContent = msgIdx < messages.length ? messages[msgIdx] : "Let's connect and start building your community!"; }
+  </script>
+  <script>
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const closeSidebar = document.getElementById("closeSidebar");
+    const mobileSidebar = document.getElementById("mobileSidebar");
+  
+    sidebarToggle.addEventListener("click", () => {
+      mobileSidebar.classList.remove("-translate-x-full");
+    });
+  
+    closeSidebar.addEventListener("click", () => {
+      mobileSidebar.classList.add("-translate-x-full");
+    });
+  
+    // Optional: Close sidebar when clicking a link
+    mobileSidebar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileSidebar.classList.add("-translate-x-full");
+      });
+    });
+  </script>  
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>  
+</body>
+</html>
+<section id="testimonials" class="py-20 bg-[#0d0d0f] text-white">
+  <div class="text-center mb-12 px-4">
+    <h2 class="text-4xl font-extrabold mb-2">Testimonials</h2>
+    <p class="text-gray-400 text-lg">What clients say about working with me</p>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto px-6">
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
+          <p class="text-lg italic mb-4">
+            "Gregory is a game-changer. He brought structure and creativity to our community operations during a critical growth phase."
+          </p>
+          <p class="text-purple-400 font-semibold">— Lina M., DAO Lead</p>
+          <div class="mt-2 text-yellow-400">★★★★★</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
+          <p class="text-lg italic mb-4">
+            "From social posts to admin tasks, Gregory handles it all with a smile. His work ethic and design sense are unmatched."
+          </p>
+          <p class="text-purple-400 font-semibold">— Jake O., Project Manager</p>
+          <div class="mt-2 text-yellow-400">★★★★★</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
+          <p class="text-lg italic mb-4">
+            "Gregory's creative energy and professionalism elevated our brand presence. Highly recommend him."
+          </p>
+          <p class="text-purple-400 font-semibold">— Amaka N., Brand Strategist</p>
+          <div class="mt-2 text-yellow-400">★★★★★</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
+          <p class="text-lg italic mb-4">
+            "Reliable, fast, and sharp. Gregory brings solutions and polish to every project."
+          </p>
+          <p class="text-purple-400 font-semibold">— David K., Startup Founder</p>
+          <div class="mt-2 text-yellow-400">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="swiper-pagination mt-6"></div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="swiper-button-prev !text-white !left-0 -ml-6"></div>
+    <div class="swiper-button-next !text-white !right-0 -mr-6"></div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    grabCursor: true,
+    effect: "slide", // or try "fade"
+    autoplay: {
+      delay: 6000,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+<!-- Add Swiper.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: { delay: 5000 },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<!-- Animation (Tailwind Custom) -->
+<style>
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+</style>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 px-6 mt-10 text-white">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl font-extrabold mb-4">Contact Me</h2>
+    <p class="text-gray-300 mb-8">Ready to work together? Send me a message and I’ll get back to you within 24 hours.</p>
+    <form class="space-y-6 bg-zinc-800 bg-opacity-50 p-8 rounded-xl shadow-lg">
+      <div class="flex flex-col text-left">
+        <label for="name" class="mb-1 text-sm font-semibold text-gray-300">Name</label>
+        <input type="text" id="name" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Your Name">
+      </div>
+      <div class="flex flex-col text-left">
+        <label for="email" class="mb-1 text-sm font-semibold text-gray-300">Email</label>
+        <input type="email" id="email" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="you@example.com">
+      </div>
+      <div class="flex flex-col text-left">
+        <label for="message" class="mb-1 text-sm font-semibold text-gray-300">Message</label>
+        <textarea id="message" rows="5" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Let's collaborate on your next project..."></textarea>
+      </div>
+      <button type="submit" onsubmit="handleSubmit()" class="btn-neon w-full text-lg font-semibold">Send Message</button>
+    </form>
+  </div>
+</section>
+ <footer class="mt-12 py-6 bg-gray-900 text-white">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+    <!-- Social Icons -->
+    <div class="flex justify-center md:justify-start gap-6 mb-4 md:mb-0">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/gregory-azubuike?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin fa-2x text-white hover:text-blue-500"></i>
+      </a>
+      
+      <!-- Twitter -->
+      <a href="https://x.com/azubuike321?t=znbnFuVXgRpbR13SJgezeA&s=09" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter fa-2x text-white hover:text-blue-400"></i>
+      </a>
+      
+      <!-- Email -->
+      <a href="mailto:azubuikegrg@gmail.com">
+        <i class="fas fa-envelope fa-2x text-white hover:text-red-400"></i>
+      </a>
+      
+      <!-- GitHub -->
+      <a href="https://github.com/azubuike321" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github fa-2x text-white hover:text-gray-400"></i>
+      </a>
+      
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/azubuike123_?igsh=MW5lNnpqeDZwaWg0Yg==" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram fa-2x text-white hover:text-pink-500"></i>
+      </a>
+      
+      <!-- Telegram -->
+      <a href="https://t.me/azubuike321" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram fa-2x text-white hover:text-blue-400"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center md:text-right text-sm text-gray-300">
+      © 2025 Egwu Gregory Azubuike. All rights reserved.
+    </div>
+  </div>
+</footer>
