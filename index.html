@@ -396,19 +396,6 @@
     },
   });
 </script>
-<!-- Add Swiper.js JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    loop: true,
-    autoplay: { delay: 5000 },
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
 
 <!-- Animation (Tailwind Custom) -->
 <style>
@@ -450,7 +437,7 @@
         <label for="message" class="mb-1 text-sm font-semibold text-gray-300">Message</label>
         <textarea id="message" name="message" rows="5" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Let's collaborate on your next project..."></textarea>
       </div>
-      <button type="submit" onsubmit="handleSubmit()" class="btn-neon w-full text-lg font-semibold">Send Message</button>
+      <button type="submit" class="btn-neon w-full text-lg font-semibold">Send Message</button>
     </form>
   </div>
 </section>
