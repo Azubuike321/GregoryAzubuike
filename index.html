@@ -436,18 +436,19 @@
   <div class="max-w-3xl mx-auto text-center">
     <h2 class="text-3xl font-extrabold mb-4">Contact Me</h2>
     <p class="text-gray-300 mb-8">Ready to work together? Send me a message and I’ll get back to you within 24 hours.</p>
-    <form class="space-y-6 bg-zinc-800 bg-opacity-50 p-8 rounded-xl shadow-lg">
+    <form class="space-y-6 bg-zinc-800 bg-opacity-50 p-8 rounded-xl shadow-lg"   action="https://formspree.io/f/mdkgeydg"
+    method="POST">
       <div class="flex flex-col text-left">
         <label for="name" class="mb-1 text-sm font-semibold text-gray-300">Name</label>
-        <input type="text" id="name" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Your Name">
+        <input type="text" name="fullName" id="name" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Your Name">
       </div>
       <div class="flex flex-col text-left">
         <label for="email" class="mb-1 text-sm font-semibold text-gray-300">Email</label>
-        <input type="email" id="email" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="you@example.com">
+        <input type="email" name="email" id="email" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="you@example.com">
       </div>
       <div class="flex flex-col text-left">
         <label for="message" class="mb-1 text-sm font-semibold text-gray-300">Message</label>
-        <textarea id="message" rows="5" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Let's collaborate on your next project..."></textarea>
+        <textarea id="message" name="message" rows="5" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Let's collaborate on your next project..."></textarea>
       </div>
       <button type="submit" onsubmit="handleSubmit()" class="btn-neon w-full text-lg font-semibold">Send Message</button>
     </form>
