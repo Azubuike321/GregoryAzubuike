@@ -1,482 +1,820 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746232829/azubuike_greg_Design_a_bold__modern_logo_using_the_letter__G__as_d7fcb3ee-2fb3-469d-b2bf-65d895089ea6_r49lv7.png" type="image/png" />
-  <title>Gregory Azubuike | Virtual Assistant & Visual Creative</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top left, #2b003d, #04001b 70%);
-      overflow-x: hidden;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gregory Azubuike | Social Media & Paid Media Specialist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://res.cloudinary.com/djh1zkn3l/image/upload/v1749223283/4_lkdxyu.png" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      
+        :root {
+            --color-blue: #246BFD;
+            --color-light-gray: #F8F8F8;
+            --radius-default: 12px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+        }
+
+        /* Custom Scroll Behavior and Section Spacing */
+        section {
+            padding: 80px 0;
+            opacity: 0; /* Hidden for fade-in effect */
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sticky Header Blur & Background */
+        .sticky-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* Navigation Hover Underline */
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-blue);
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Proof of Work Card Hover Effect */
+        .work-card-inner {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+            border-radius: var(--radius-default);
+            overflow: hidden;
+        }
+        .work-card:hover .work-card-inner {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(36, 107, 253, 0.1), 0 8px 10px -6px rgba(36, 107, 253, 0.1);
+        }
+        .work-card-image {
+            transition: transform 0.4s ease-out;
+        }
+        .work-card:hover .work-card-image {
+            transform: scale(1.08);
+        }
+        .work-card-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        .work-card:hover .work-card-overlay {
+            opacity: 1;
+        }
+        .work-card-text {
+            transform: translateY(20px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        .work-card:hover .work-card-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--color-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            opacity: 0.1;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            right: -6px;
+            background-color: var(--color-blue);
+            border: 2px solid white;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.right::after {
+            left: -6px;
+        }
+
+        /* Mobile specific adjustments for timeline */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 0 10px 10px;
+                border-color: transparent transparent transparent white;
+            }
+            .timeline-item::after {
+                left: 25px;
+            }
+            .timeline-item.right {
+                left: 0%;
+            }
+        }
+
+
+
+        /* Soft animated background for header */
+#header {
+    position: relative;
+    overflow: hidden;
+}
+
+#header::before {
+  content: "";
+  position: absolute;
+  inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+  z-index: -1;              /* behind header content */
+  pointer-events: none;
+  transform: translateZ(0); /* promote to its own layer for smoother animation */
+
+  /* stack: top = grid lines, bottom = soft colored gradient */
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 40px),
+    linear-gradient(120deg, rgba(247,247,255,0.6), rgba(238,247,255,0.45), rgba(255,240,232,0.45));
+
+  /* grid spacing / size (tweak 40px to change density) */
+  background-size: 40px 40px, 40px 40px, cover;
+  background-position: 0 0, 0 0, center center;
+
+  /* visual treatments */
+  filter: blur(6px) saturate(1.05);
+  opacity: 0.6;
+
+  /* animations: grid move (infinite), soft breathe (opacity) */
+  animation:
+    gridMove 12s linear infinite,
+    gridPulse 4.5s ease-in-out infinite;
+}
+
+/* Move the two grid layers in opposite directions for subtle motion */
+@keyframes gridMove {
+  0% {
+    background-position: 0 0, 0 0, center center; /* vertical-grid, horizontal-grid, gradient */
+  }
+  50% {
+    background-position: 64px 64px, -64px -64px, center center;
+  }
+  100% {
+    background-position: 0 0, 0 0, center center;
+  }
+}
+
+/* Soft breathing pulse so the grid slightly lightens/darkens */
+@keyframes gridPulse {
+  0%   { opacity: 0.45; }
+  50%  { opacity: 0.75; }
+  100% { opacity: 0.45; }
+}
+
+/* Optional: keep mobile menu visible above the grid if you have layering quirks */
+#mobile-menu {
+  z-index: 51; /* header already uses z-50, this ensures the menu sits above the bg if needed */
+}
+
+
+
+
+@keyframes headerSoftGlow {
+    0% {
+        background-position: 0% 50%;
     }
-    .hero-title { position: relative; color: #fff; }
-    .hero-title::after {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transform: translateX(-100%);
-      animation: shimmer 3s infinite;
+    50% {
+        background-position: 100% 50%;
     }
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      50% { transform: translateX(100%); }
-      100% { transform: translateX(100%); }
+    100% {
+        background-position: 0% 50%;
     }
-    .stats-card {
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      border-radius: 1rem;
-      padding: 2rem;
-      color: #fff;
-      background-size: 200% 200%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      animation: gradientStat 6s ease infinite, cardPulse 4s ease-in-out infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .stats-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255,255,255,0.6);
-    }
-    .stats-card:nth-child(1) { background-image: linear-gradient(45deg, #ff7e5f, #feb47b); }
-    .stats-card:nth-child(2) { background-image: linear-gradient(45deg, #6a11cb, #2575fc); }
-    .stats-card:nth-child(3) { background-image: linear-gradient(45deg, #43cea2, #185a9d); }
-    .stats-card:nth-child(4) { background-image: linear-gradient(45deg, #811a7a, #185a9d); }
-    .stats-card:nth-child(5) { background-image: linear-gradient(45deg, #4d02b7, #185a9d); }
-    .stats-card:nth-child(6) { background-image: linear-gradient(45deg, #5b6510, #185a9d); }
-    @keyframes gradientStat {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes cardPulse {  /* match class animation */
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    .btn-neon {
-      position: relative; color: #fff; background: #8e2de2;
-      padding: 0.75rem 1.5rem; border-radius: 0.5rem;
-      overflow: hidden; z-index: 1;
-    }
-    .btn-neon::before {
-      content: '';
-      position: absolute; top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 60%);
-      animation: glow 2s ease infinite;
-      z-index: -1;
-    }
-    @keyframes glow {
-      0%,100% { transform: translate(0,0) scale(1); opacity: 0.7; }
-      50% { transform: translate(20%,20%) scale(1.2); opacity: 0.3; }
-    }
-  </style>
+}
+
+    </style>
 </head>
-<script>
-  window.addEventListener('load', function () {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.opacity = '0';
-      preloader.style.transition = 'opacity 0.5s ease-out';
-      setTimeout(() => preloader.style.display = 'none', 500);
-    }
-  });
-</script>
-<script>
-  window.addEventListener('load', function () {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.opacity = '0';
-      preloader.style.transition = 'opacity 0.5s ease-out';
-      setTimeout(() => preloader.style.display = 'none', 500);
-    }
-  });
-</script>
 <body>
-  <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
-    <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746232829/azubuike_greg_Design_a_bold__modern_logo_using_the_letter__G__as_d7fcb3ee-2fb3-469d-b2bf-65d895089ea6_r49lv7.png" alt="Loading..." class="w-24 h-24 animate-bounce" />
-  </div>
 
-  
-  <header class="w-full bg-gray-800 px-4 py-4 flex items-center justify-between sticky top-0 z-50">
-    <h1 class="text-xl font-bold shimmer"><span class="text-white">Gregory </span><span class="text-purple-500">Azubuike</span></h1>
-    <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-    <nav id="mobile-menu"
-      class="hidden md:flex md:items-center md:gap-6 absolute md:static bg-gray-800 top-16 left-0 w-full md:w-auto flex-col md:flex-row p-4 md:p-0">
-      <a href="#hero" class="hover:text-green-400 text-white block py-2 ">Home</a>
-      <a href="#about" class="hover:text-green-400 block py-2 text-white">About</a>
-      <a href="#services" class="hover:text-green-400 block py-2 text-white">Services</a>
-      <a href="#portfolio" class="hover:text-green-400 block py-2 text-white">Portfolio</a>
-      <a href="#testimonials" class="hover:text-green-400 block py-2 text-white">Testimonials</a>
-      <a href="#contact" class="hover:text-green-400 block py-2 text-white">Contact</a>
-    </nav>
-  </header>  
+    <!-- 1. Header (Sticky & Blurred) -->
+    <header id="header headerSoftGlow" class="sticky-header fixed top-0 w-full z-50 transition-all duration-300">
 
-  <!-- Hero -->
-  <section class="flex flex-wrap items-start justify-between gap-10 p-10" id="home">
-    <div class="max-w-xl">
-      <h1 class="hero-title text-4xl md:text-5xl font-bold leading-tight">Virtual Assistant & <span class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Visual Creative</span> for Digital Brands</h1>
-      <p class="mt-4 text-lg text-gray-300">I help digital communities grow through strategic support, impactful visuals, and compelling content.</p>
-      <div class="mt-6 space-x-4">
-        <a href="#contact" class="btn-neon inline-block font-semibold">Let's Work Together</a>
-        <a href="#services" class="btn-neon inline-block font-semibold">Explore Services</a>
-      </div>
-    </div>
-    <div class="relative w-[380px] h-[300px] bg-zinc-800 rounded-xl shadow-lg overflow-hidden">
-      <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_0yfsb3a1.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
-      <div class="absolute bottom-4 left-4 right-4 bg-black/70 p-4 rounded-lg text-gray-200">
-        <div class="flex justify-between items-center text-sm">
-          <p id="chatText">Hi there! I'm Gregory, your Web3 virtual assistant. How can I help your community grow today?</p>
-          <button onclick="showNextMessage()" class="text-purple-300 text-xl transition">➡️</button>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#hero" class="text-xl font-bold text-black tracking-wider">
+                    Gregory Azubuike
+                </a>
+                <!-- Navigation (Desktop) -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-black transition duration-300">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-black transition duration-300">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-black transition duration-300">Skills</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-black transition duration-300">Experience</a>
+                    <a href="#work" class="nav-link text-gray-700 hover:text-black transition duration-300">Proof of Work</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-black transition duration-300">Contact</a>
+                </nav>
+                <!-- Mobile Menu Button (Placeholder for functionality in JS) -->
+                <button id="mobile-menu-button" class="md:hidden text-black focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats with Vanta.js -->
-  <section id="stats" class="relative grid grid-cols-1 md:grid-cols-3 gap-6 p-6 text-center bg-zinc-900 bg-opacity-50 rounded-xl backdrop-blur">
-    <div id="vanta-stats-bg" class="absolute inset-0"></div>
-    <div class="stats-card relative z-10">
-      <h2 class="text-4xl font-extrabold" id="stat1">0+</h2>
-      <p class="mt-2 text-gray-200">Years of Experience</p>
-    </div>
-    <div class="stats-card relative z-10">
-      <h2 class="text-4xl font-extrabold" id="stat2">0+</h2>
-      <p class="mt-2 text-gray-200">Designs Created</p>
-    </div>
-    <div class="stats-card relative z-10">
-      <h2 class="text-4xl font-extrabold" id="stat3">0+</h2>
-      <p class="mt-2 text-gray-200">Campaigns Led</p>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 px-6 bg-zinc-800 bg-opacity-50 text-gray-200 backdrop-blur rounded-xl mt-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-extrabold mb-4 text-white">About Me</h2>
-      <p class="text-lg text-gray-300 leading-relaxed">
-        I'm Gregory Azubuike — a versatile Virtual Assistant and Visual Creative with over 3+ years of experience empowering digital brands, Web3 startups and DAOs. I specialize in blending operational support with compelling design to drive community growth and brand engagement. Whether it’s managing social channels, creating eye-catching visuals, or coordinating digital campaigns, I bring precision, creativity, and a deep understanding of decentralized ecosystems to every project. My goal is simple: help visionary teams stay organized, stand out, and scale sustainably.
-      </p>
-    </div>
-  </section>
-
-  <section id="services" class="py-16 px-6 mt-10 text-white">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl font-extrabold">Services</h2>
-      <p class="text-gray-300 mt-2 text-lg">Here's what I can do for your digital brand:</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- Service 1 -->
-      <div class="stats-card">
-        <h3 class="text-xl font-bold mb-2">Community Management</h3>
-        <p class="text-gray-100">Moderate chats, engage audiences, and grow active online communities with tailored strategies.</p>
-      </div>
-      <!-- Service 2 -->
-      <div class="stats-card">
-        <h3 class="text-xl font-bold mb-2">Content Creation</h3>
-        <p class="text-gray-100">Design graphics, write copy and schedule engaging posts across multiple platforms.</p>
-      </div>
-      <!-- Service 3 -->
-      <div class="stats-card">
-        <h3 class="text-xl font-bold mb-2">Admin Support</h3>
-        <p class="text-gray-100">Handle DMs, emails, document prep and task coordination so your team stays focused.</p>
-      </div>
-      <!-- Service 4 -->
-      <div class="stats-card">
-        <h3 class="text-xl font-bold mb-2">Customer Support</h3>
-        <p class="text-gray-100">Respond to community questions and provide helpful, human-centered support.</p>
-      </div>
-      <!-- Service 5 -->
-      <div class="stats-card">
-        <h3 class="text-xl font-bold mb-2">Brand Asset Design</h3>
-        <p class="text-gray-100">Create visual assets that align with your brand identity from logos to banners and slides.</p>
-      </div>
-      <!-- Service 6 -->
-      <div class="stats-card">
-        <h3 class="text-xl font-bold mb-2">Website Design & Edits</h3>
-
-        <p class="text-gray-100">design and create you website,from concept to execution.</p>
-      </div>
-    </div>
-  </section>
-  
-  <section id="portfolio" class="relative py-24 bg-[#0d0d0f] overflow-hidden z-10">
-    <!-- Glowing Background Lights -->
-    <div class="absolute top-[-80px] left-[-100px] w-[400px] h-[400px] bg-purple-500 opacity-30 rounded-full blur-[150px] z-0"></div>
-    <div class="absolute bottom-[-100px] right-[-120px] w-[500px] h-[500px] bg-blue-400 opacity-20 rounded-full blur-[160px] z-0"></div>
-  
-    <!-- Heading -->
-    <div class="relative z-10 text-center mb-16 px-4">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Portfolio</h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-        A glimpse into the kind of high-quality virtual assistance and creative support I provide.
-      </p>
-    </div>
-  
-    <!-- Portfolio Grid -->
-    <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6 md:px-20">
-      <!-- Card 1 -->
-      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
-        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746224620/Navigating_the_business_hierarchy_can_be_challenging__k6zlyh.jpg" alt="Admin Tasks" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Admin Tasks</h3>
-          <p class="text-gray-300 text-sm">Organizing schedules, managing to-do lists, and keeping operations on track.</p>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white/95 backdrop-blur-md shadow-lg py-4">
+            <nav class="flex flex-col space-y-2 px-4">
+                <a href="#home" class="nav-link p-2 text-gray-700 hover:text-black transition duration-300">Home</a>
+                <a href="#about" class="nav-link p-2 text-gray-700 hover:text-black transition duration-300">About</a>
+                <a href="#skills" class="nav-link p-2 text-gray-700 hover:text-black transition duration-300">Skills</a>
+                <a href="#experience" class="nav-link p-2 text-gray-700 hover:text-black transition duration-300">Experience</a>
+                <a href="#work" class="nav-link p-2 text-gray-700 hover:text-black transition duration-300">Proof of Work</a>
+                <a href="#contact" class="nav-link p-2 text-gray-700 hover:text-black transition duration-300">Contact</a>
+            </nav>
         </div>
-      </div>
-  
-      <!-- Card 2 -->
-      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
-        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746224639/social_media_marketing_udqjpe.jpg" alt="Social Media Management" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Social Media Management</h3>
-          <p class="text-gray-300 text-sm">Crafting and scheduling engaging posts across platforms to grow your online presence.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 2. Hero Section -->
+        <section id="home" class="pt-32 pb-20 md:pt-40 visible" style="transition-delay: 0s;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content (Left) -->
+                    <div class="order-2 md:order-1">
+                        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-black leading-tight mb-4">
+                                Egwu Gregory Azubuike
+                            </h1>
+                            <p class="text-xl sm:text-2xl text-[#246BFD] font-medium mb-6">
+                                Social Media Manager · Video Editor · Paid Media Strategist
+                            </p>
+                            <p class="text-gray-600 text-lg mb-8 max-w-lg">
+                                I help brands grow through high-performing social media strategy, trend-driven content creation, and scroll-stopping short-form video editing.
+                            </p>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="flex space-x-4">
+                            <a href="#work" class="px-6 py-3 bg-[#246BFD] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300 hover:scale-[1.02] transform">
+                                View Portfolio
+                            </a>
+                            <a href="#contact" class="px-6 py-3 border border-gray-300 text-black font-semibold rounded-xl hover:bg-[#F8F8F8] transition duration-300 hover:scale-[1.02] transform">
+                                Get in touch
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Headshot Placeholder (Right) -->
+                    <div class="order-1 md:order-2 flex justify-center md:justify-end">
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 bg-[#F8F8F8] rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/20 transform hover:scale-[1.05] transition duration-500">
+                            <!-- Placeholder image: replace the src with your actual professional headshot URL -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1749223283/4_lkdxyu.png" alt="Professional Headshot" class="rounded-full w-full h-full object-cover p-2" onerror="this.src='https://placehold.co/320x320/246BFD/FFFFFF?text=Professional+Headshot'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Section -->
+        <section id="about" class="bg-[#F8F8F8]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">About Me</h2>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Who I Am -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-black mb-4 flex items-center">
+                            <i class="fas fa-user-astronaut text-[#246BFD] mr-3"></i> Who I Am
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Creative Social Media Manager and Video Editor with 2+ years of experience working with Web3 gaming and consumer brands. I specialize in producing high-performing short-form content, managing multi-platform strategies, and creating data-driven paid media campaigns. I thrive on translating brand goals into viral-ready, engaging content.
+                        </p>
+                    </div>
+
+                    <!-- What I Do Best -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-black mb-4 flex items-center">
+                            <i class="fas fa-magic text-[#246BFD] mr-3"></i> What I Do Best
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center"><i class="fas fa-share-alt text-[#246BFD] w-5 mr-3"></i> Social Media Management (Strategy & Execution)</li>
+                            <li class="flex items-center"><i class="fas fa-video text-[#246BFD] w-5 mr-3"></i> Short-form Video Editing (TikTok, Reels, Shorts)</li>
+                            <li class="flex items-center"><i class="fas fa-ad text-[#246BFD] w-5 mr-3"></i> TikTok & Meta Paid Media Campaigns</li>
+                            <li class="flex items-center"><i class="fas fa-search text-[#246BFD] w-5 mr-3"></i> Trend Research & Content Ideation</li>
+                            <li class="flex items-center"><i class="fas fa-chart-line text-[#246BFD] w-5 mr-3"></i> Analytics & Performance Reporting</li>
+                            <li class="flex items-center"><i class="fas fa-users text-[#246BFD] w-5 mr-3"></i> Community Management & Engagement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Skills Section -->
+        <section id="skills">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">Core Skills & Tools</h2>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+                    <!-- Skill Card Component (repeated) -->
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-bullhorn text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Social Media Strategy</h4>
+                        <p class="text-sm text-gray-500">Full-cycle planning & execution.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-cut text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">TikTok Editing</h4>
+                        <p class="text-sm text-gray-500">Hook-focused, high-retention video.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-dollar-sign text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Meta Ads Manager</h4>
+                        <p class="text-sm text-gray-500">Campaign setup & optimization.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-film text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">CapCut / Premiere Pro</h4>
+                        <p class="text-sm text-gray-500">Professional video editing suite.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-palette text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Canva / Design Basics</h4>
+                        <p class="text-sm text-gray-500">Quick, high-quality graphic creation.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-clipboard-list text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Notion / Workflow</h4>
+                        <p class="text-sm text-gray-500">Project management & documentation.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-clock text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Buffer / Scheduling</h4>
+                        <p class="text-sm text-gray-500">Efficient multi-platform posting.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-chart-bar text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Data & Analytics</h4>
+                        <p class="text-sm text-gray-500">Performance tracking and insights.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-hashtag text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Meta Business Suite</h4>
+                        <p class="text-sm text-gray-500">Comprehensive platform management.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-gamepad text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Discord Mgmt</h4>
+                        <p class="text-sm text-gray-500">Web3 community engagement.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-bolt text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Trend Research</h4>
+                        <p class="text-sm text-gray-500">Viral content identification.</p>
+                    </div>
+                    <div class="skill-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg transition duration-300 hover:shadow-2xl hover:scale-[1.03] transform cursor-pointer">
+                        <i class="fas fa-code text-[#246BFD] text-3xl mb-3"></i>
+                        <h4 class="font-semibold text-black">Webflow / Wix Basics</h4>
+                        <p class="text-sm text-gray-500">CMS updates & landing page edits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Experience Section (Vertical Timeline) -->
+        <section id="experience" class="bg-[#F8F8F8]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">Professional Experience</h2>
+
+                <div class="timeline">
+
+                    <!-- SlingshotDAO -->
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#246BFD] hover:shadow-2xl transition duration-300 transform hover:scale-[1.01]">
+                            <p class="text-sm text-gray-500 mb-1">2023 – Present</p>
+                            <h3 class="text-xl font-bold text-black mb-2">SlingshotDAO</h3>
+                            <p class="text-md font-semibold text-[#246BFD] mb-3">Social Media Manager & Video Editor</p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2 text-sm">
+                                <li>Managed TikTok and X accounts; created trend-driven content. <span class="text-xs text-green-500">(+150% organic reach)</span></li>
+                                <li>Produced 3+ short-form videos weekly utilizing CapCut & Premiere Pro.</li>
+                                <li>Worked on Web3 community announcements & competitive gaming clips.</li>
+                                <li>Edited gameplay videos using zoom smoothing, transitions, and audio sync.</li>
+                                <li>Improved community engagement through consistent posting & direct interaction.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Virtuous Bread World -->
+                    <div class="timeline-item right">
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-r-4 border-[#246BFD] hover:shadow-2xl transition duration-300 transform hover:scale-[1.01]">
+                            <p class="text-sm text-gray-500 mb-1">2024 – 2025</p>
+                            <h3 class="text-xl font-bold text-black mb-2">Virtuous Bread World</h3>
+                            <p class="text-md font-semibold text-[#246BFD] mb-3">Social Media Manager | Virtual Assistant</p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2 text-sm">
+                                <li>Managed content across TikTok, Instagram, Facebook, and X.</li>
+                                <li>Scheduled weekly posts using Meta Suite. <span class="text-xs text-green-500">(100% adherence to content calendar)</span></li>
+                                <li>Created bakery promotional videos & recipe storytelling content.</li>
+                                <li>Designed captions, optimized hashtags, and tracked analytics.</li>
+                                <li>Handled community engagement & administrative support tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Add more experience items here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Proof of Work Section (Grid with Hover Effects) -->
+        <section id="work">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">Proof of Work (Portfolio)</h2>
+                <p class="text-center text-gray-600 mb-12">Click on any card to view the live proof source.</p>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Portfolio Item 1 -->
+                    <a href="https://www.tiktok.com/@slipshotgame?_r=1&_t=ZM-91s2WpyuH9c" target="_blank" class="work-card group block" data-link="https://www.tiktok.com/@slipshotgame?_r=1&_t=ZM-91s2WpyuH9c">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764668605/Screenshot_20251202_104200_TikTok_cqzmoh.jpg" alt="TikTok Gaming Edit" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/246BFD/FFFFFF?text=TikTok+Gaming+Edit'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">TikTok Gaming Edit – SlingshotDAO</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">High-energy, trend-based short-form video content.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Portfolio Item 2 -->
+                    <a href="https://example.com/bakery-promo-reel" target="_blank" class="work-card group block" data-link="https://www.instagram.com/reel/DNODmtoMDkj/">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764631167/Screenshot_20251202_001900_Instagram_iphhqe.jpg" alt="Bakery Promo Reel" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/F0A04B/FFFFFF?text=Bakery+Promo+Reel'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">Bakery Promo Reel – Virtuous Bread World</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Engaging food videography and recipe storytelling.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                       <!-- Portfolio Item 3 -->
+                    <a href="https://example.com/bakery-promo-reel" target="_blank" class="work-card group block" data-link="https://drive.google.com/drive/folders/1sZeQCcz2HSuEiZL5HWfvuanu4V4YUVhW">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764677552/1764677522295_pcrbx2.png" alt="VIRTUOUS BDREAD WORLD GRAPHICS DESIGN" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/F0A04B/FFFFFF?text=Bakery+Promo+Reel'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">graphics design – Virtuous Bread World</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Engaging food videography and recipe storytelling.</p>
+                            </div>
+                        </div>
+                    </a>
+
+
+                       <!-- Portfolio Item 4 -->
+                    <a href="https://example.com/bakery-promo-reel" target="_blank" class="work-card group block" data-link="https://drive.google.com/file/d/1YCDKrFbvRekhnHYwwLqT2xO8rLEaDUCo/view?usp=drivesdk">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764675498/Screenshot_20251202_123719_Samsung_Notes_ovny5t.jpg" alt="Bakery Promo Reel" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/F0A04B/FFFFFF?text=Bakery+Promo+Reel'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">Bakery Promo Reel – Virtuous Bread World</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Engaging food videography and recipe storytelling.</p>
+                            </div>
+                        </div>
+                    </a>
+
+
+                       <!-- Portfolio Item 5 -->
+                    <a href="https://example.com/bakery-promo-reel" target="_blank" class="work-card group block" data-link="https://drive.google.com/file/d/178QJbW2zGTG81xDvr4dFzNxXXtxv6BR9/view?usp=sharing">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764676453/Screenshot_20251202_125313_Samsung_Notes_nikc4z.jpg" alt="Bakery Promo Reel" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/F0A04B/FFFFFF?text=Bakery+Promo+Reel'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">proof of funds being handled – paid ads</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">full report of most recent ad payment.</p>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <!-- Portfolio Item 6 -->
+                    <a href="https://example.com/tiktok-trend-edit" target="_blank" class="work-card group block" data-link="https://drive.google.com/drive/folders/1-jxL4aSfivZ-huu_at7PigMBfjguAIce">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764673247/Screenshot_20251202_120027_Drive_fnvzwr.jpg" alt="more video sample" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/17A2B8/FFFFFF?text=TikTok+Trend+Edit'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">UGC Trend Edit</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Rapid turnaround content based on current platform trends.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Portfolio Item 7 -->
+                    <a href="https://example.com/paid-media-creative" target="_blank" class="work-card group block" data-link="https://fb.me/2aUyv9689ecxDyL">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764667465/WhatsApp_Image_2025-12-02_at_10.23.41_0ee592c1_xukzu3.jpg" alt="Paid Media Ad Creative" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/6A5ACD/FFFFFF?text=Paid+Media+Ad+Creative'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">Paid Media Ad Creative (Meta)</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Conversion-focused video creative for Meta Ads.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Portfolio Item 8 -->
+                    <a href="https://example.com/community-clip" target="_blank" class="work-card group block" data-link="https://x.com/SlingshotDAO/status/1901984571693969778?t=Rkh7rUxA-ke53oEKA0J6Og&s=19">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1749301449/Gemini_Generated_Image_jm4db2jm4db2jm4d_1_lcdyis.png" alt="Community Announcement Clip" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/E83E8C/FFFFFF?text=Community+Announcement'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">Community Announcement Clip</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Clear and engaging informational Web3 content.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Portfolio Item 9 -->
+                    <a href="https://example.com/ugc-content" target="_blank" class="work-card group block" data-link="https://x.com/AzubeKinas/status/1894936771260997857">
+                        <div class="work-card-inner bg-[#F8F8F8] shadow-xl hover:shadow-blue-500/30 relative">
+                            <!-- Image Placeholder -->
+                            <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1764672540/Screenshot_20251202_114739_X_agmhns.jpg" alt="Short-form UGC Content" class="work-card-image w-full h-60 object-cover" onerror="this.src='https://placehold.co/600x400/00C0A0/FFFFFF?text=Short-form+UGC+Content'">
+                            <!-- Overlay and Text -->
+                            <div class="work-card-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <p class="text-sm font-medium text-gray-200 mb-1 work-card-text opacity-0">Short-form UGC Content</p>
+                                <h4 class="text-xl font-bold text-white mb-2 work-card-text opacity-0">See more ↓</h4>
+                                <p class="text-xs text-gray-300 work-card-text opacity-0">Authentic, user-generated style video production.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Contact Section -->
+        <section id="contact" class="bg-[#F8F8F8]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">Get In Touch</h2>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl border border-gray-100">
+                        <h3 class="text-2xl font-semibold mb-6">Send a Message</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#246BFD] focus:border-[#246BFD] transition duration-200">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#246BFD] focus:border-[#246BFD] transition duration-200">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#246BFD] focus:border-[#246BFD] transition duration-200"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-[#246BFD] text-white font-semibold rounded-xl shadow-lg hover:bg-blue-600 transition duration-300 transform hover:scale-[1.01]">
+                                Send Message
+                            </button>
+                            <p id="form-status" class="text-center mt-3 text-sm hidden"></p>
+                        </form>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="flex flex-col space-y-6 pt-4">
+                        <h3 class="text-2xl font-semibold mb-2">Connect Directly</h3>
+                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md">
+                            <i class="fas fa-envelope text-3xl text-[#246BFD]"></i>
+                            <div>
+                                <p class="font-medium text-gray-700">Email</p>
+                                <a href="mailto:azubuikegregory@email.com" class="text-black hover:text-[#246BFD] transition duration-300">azubuikegrg@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md">
+                            <i class="fas fa-phone-alt text-3xl text-[#246BFD]"></i>
+                            <div>
+                                <p class="font-medium text-gray-700">Phone</p>
+                                <a href="tel:+2347063260471" class="text-black hover:text-[#246BFD] transition duration-300">+234 706 326 0471</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md">
+                            <i class="fab fa-linkedin text-3xl text-[#246BFD]"></i>
+                            <div>
+                                <p class="font-medium text-gray-700">LinkedIn</p>
+                                <a href="https://linkedin.com/in/gregory-azubuike" target="_blank" class="text-black hover:text-[#246BFD] transition duration-300">linkedin.com/in/gregory-azubuike</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md">
+                            <i class="fab fa-telegram-plane text-3xl text-[#246BFD]"></i>
+                            <div>
+                                <p class="font-medium text-gray-700">Telegram</p>
+                                <a href="https://t.me/azubuike321" target="_blank" class="text-black hover:text-[#246BFD] transition duration-300">t.me/azubuike321</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. Footer -->
+    <footer class="bg-black py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Social Icons -->
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://linkedin.com/in/gregory-azubuike" target="_blank" class="text-gray-400 hover:text-[#246BFD] transition duration-300 text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                
+                <a href="https://t.me/azubuike321" target="_blank" class="text-gray-400 hover:text-[#246BFD] transition duration-300 text-2xl" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+            <p class="text-sm text-gray-400">
+                &copy; 2024 Egwu Gregory Azubuike. All rights reserved. Built with passion and code.
+            </p>
         </div>
-      </div>
-  
-      <!-- Card 3 -->
-      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
-        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746224559/Change_Your_Calendar_Change_Your_Life_ahqbi8.jpg" alt="Content Scheduling" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Content Scheduling</h3>
-          <p class="text-gray-300 text-sm">Planning and organizing content across calendars for consistency and strategy.</p>
-        </div>
-      </div>
-  
-      <!-- Card 4 -->
-      <div class="bg-[#111827] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-300 ease-in-out">
-        <img src="https://res.cloudinary.com/djh1zkn3l/image/upload/v1746225960/I_had_some_great_customer_service_this_week_.._I_m_in_the_process_of_converting_our_garage_into_a_home_gym._Having_ordered_the_flooring_yesterday_evening_this_morning_I_r_1_o8ts33.jpg" alt="Customer Support" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Customer Support</h3>
-          <p class="text-gray-300 text-sm">Prompt, empathetic communication to ensure customer satisfaction and retention.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
-  <script>
-    VANTA.NET({ el: "#vanta-stats-bg", backgroundColor: 0x04001b, color: 0xff7e5f, maxDistance: 20.00, points: 15.00, spacing: 25.00 });
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      ['stat1','stat2','stat3'].forEach((id,i) => animateValue(id,0,[3,1000,10][i],1500));
-    });
-    function animateValue(id, start, end, duration) {
-      let range = end - start, current = start, increment = end > start ? 1 : -1;
-      let stepTime = Math.abs(Math.floor(duration / range));
-      let obj = document.getElementById(id);
-      let timer = setInterval(() => { current += increment; obj.textContent = current + '+'; if (current === end) clearInterval(timer); }, stepTime);
+    </footer>
+
+
+
+ 
+
+
+    <script>
+      document.addEventListener("scroll", function () {
+    const header = document.getElementById("header");
+    if (window.scrollY > 30) {
+        header.style.backgroundColor = "rgba(255,255,255,0.8)";
+        header.style.backdropFilter = "blur(6px)";
+    } else {
+        header.style.backgroundColor = "transparent";
+        header.style.backdropFilter = "none";
     }
-    const messages = [
-      "Hi there! I'm Gregory, your Web3 virtual assistant. How can I help your community grow today?",
-      "We need help with our community engagement and social media presence.",
-      "Perfect! I specialize in creating engaging content and managing Web3 communities."
-    ]; let msgIdx=0;
-    function showNextMessage() { msgIdx++; document.getElementById('chatText').textContent = msgIdx < messages.length ? messages[msgIdx] : "Let's connect and start building your community!"; }
-  </script>
-  <script>
-    const sidebarToggle = document.getElementById("sidebarToggle");
-    const closeSidebar = document.getElementById("closeSidebar");
-    const mobileSidebar = document.getElementById("mobileSidebar");
-  
-    sidebarToggle.addEventListener("click", () => {
-      mobileSidebar.classList.remove("-translate-x-full");
-    });
-  
-    closeSidebar.addEventListener("click", () => {
-      mobileSidebar.classList.add("-translate-x-full");
-    });
-  
-    // Optional: Close sidebar when clicking a link
-    mobileSidebar.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileSidebar.classList.add("-translate-x-full");
-      });
-    });
-  </script>  
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-  </script>  
+});
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- 1. Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
+                mobileMenuButton.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+
+            // --- 2. Section Fade-in Animation (Intersection Observer) ---
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                // The Home section is already set to visible to avoid a blank screen on load
+                if (section.id !== 'home') {
+                    observer.observe(section);
+                }
+            });
+
+
+            // --- 3. Simple Contact Form Simulation (No actual backend submission) ---
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                formStatus.classList.remove('hidden', 'text-red-500');
+                formStatus.classList.add('text-black');
+                formStatus.textContent = 'Sending...';
+
+                // Simulate network request delay
+                setTimeout(() => {
+                    // In a real application, you would send data here (e.g., using fetch).
+                    // For this static site, we just show success.
+
+                    // Clear form
+                    contactForm.reset();
+
+                    formStatus.textContent = 'Thank you for your message, Gregory will be in touch soon!';
+                    formStatus.classList.add('text-green-600');
+                    formStatus.classList.remove('text-black');
+
+                    // Hide status after a few seconds
+                    setTimeout(() => {
+                        formStatus.classList.add('hidden');
+                        formStatus.classList.remove('text-green-600');
+                    }, 5000);
+                }, 1000);
+            });
+
+            // --- 4. Proof of Work Link Handler (Ensures link opens in new tab) ---
+            document.querySelectorAll('.work-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Get the URL from the data-link attribute
+                    const url = card.getAttribute('data-link');
+                    if (url) {
+                        // Open the URL in a new tab
+                        window.open(url, '_blank');
+                        // Prevent the default anchor behavior (although the target="_blank" handles this)
+                        e.preventDefault();
+                    }
+                });
+            });
+
+        });
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+   
+
+
 </body>
 </html>
-<section id="testimonials" class="py-20 bg-[#0d0d0f] text-white">
-  <div class="text-center mb-12 px-4">
-    <h2 class="text-4xl font-extrabold mb-2">Testimonials</h2>
-    <p class="text-gray-400 text-lg">What clients say about working with me</p>
-  </div>
-
-  <div class="relative max-w-4xl mx-auto px-6">
-    <!-- Swiper -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
-          <p class="text-lg italic mb-4">
-            "Gregory is a game-changer. He brought structure and creativity to our community operations during a critical growth phase."
-          </p>
-          <p class="text-purple-400 font-semibold">— Lina M., DAO Lead</p>
-          <div class="mt-2 text-yellow-400">★★★★★</div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
-          <p class="text-lg italic mb-4">
-            "From social posts to admin tasks, Gregory handles it all with a smile. His work ethic and design sense are unmatched."
-          </p>
-          <p class="text-purple-400 font-semibold">— Jake O., Project Manager</p>
-          <div class="mt-2 text-yellow-400">★★★★★</div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
-          <p class="text-lg italic mb-4">
-            "Gregory's creative energy and professionalism elevated our brand presence. Highly recommend him."
-          </p>
-          <p class="text-purple-400 font-semibold">— Amaka N., Brand Strategist</p>
-          <div class="mt-2 text-yellow-400">★★★★★</div>
-        </div>
-        <!-- Slide 4 -->
-        <div class="swiper-slide bg-[#1a1a1c] rounded-xl p-8 shadow-lg">
-          <p class="text-lg italic mb-4">
-            "Reliable, fast, and sharp. Gregory brings solutions and polish to every project."
-          </p>
-          <p class="text-purple-400 font-semibold">— David K., Startup Founder</p>
-          <div class="mt-2 text-yellow-400">★★★★★</div>
-        </div>
-      </div>
-
-      <!-- Pagination Dots -->
-      <div class="swiper-pagination mt-6"></div>
-    </div>
-
-    <!-- Navigation Buttons -->
-    <div class="swiper-button-prev !text-white !left-0 -ml-6"></div>
-    <div class="swiper-button-next !text-white !right-0 -mr-6"></div>
-  </div>
-</section>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    loop: true,
-    grabCursor: true,
-    effect: "slide", // or try "fade"
-    autoplay: {
-      delay: 6000,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
-
-<!-- Animation (Tailwind Custom) -->
-<style>
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out both;
-}
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-</style>
-
-
-<!-- Contact Section -->
-<section id="contact" class="py-16 px-6 mt-10 text-white">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-extrabold mb-4">Contact Me</h2>
-    <p class="text-gray-300 mb-8">Ready to work together? Send me a message and I’ll get back to you within 24 hours.</p>
-    <form class="space-y-6 bg-zinc-800 bg-opacity-50 p-8 rounded-xl shadow-lg"   action="https://formspree.io/f/mdkgeydg"
-    method="POST">
-      <div class="flex flex-col text-left">
-        <label for="name" class="mb-1 text-sm font-semibold text-gray-300">Name</label>
-        <input type="text" name="fullName" id="name" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Your Name">
-      </div>
-      <div class="flex flex-col text-left">
-        <label for="email" class="mb-1 text-sm font-semibold text-gray-300">Email</label>
-        <input type="email" name="email" id="email" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="you@example.com">
-      </div>
-      <div class="flex flex-col text-left">
-        <label for="message" class="mb-1 text-sm font-semibold text-gray-300">Message</label>
-        <textarea id="message" name="message" rows="5" class="p-3 rounded-lg bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white" placeholder="Let's collaborate on your next project..."></textarea>
-      </div>
-      <button type="submit" class="btn-neon w-full text-lg font-semibold">Send Message</button>
-    </form>
-  </div>
-</section>
- <footer class="mt-12 py-6 bg-gray-900 text-white">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-    <!-- Social Icons -->
-    <div class="flex justify-center md:justify-start gap-6 mb-4 md:mb-0">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/gregory-azubuike?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin fa-2x text-white hover:text-blue-500"></i>
-      </a>
-      
-      <!-- Twitter -->
-      <a href="https://x.com/azubuike321?t=znbnFuVXgRpbR13SJgezeA&s=09" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-twitter fa-2x text-white hover:text-blue-400"></i>
-      </a>
-      
-      <!-- Email -->
-      <a href="mailto:azubuikegrg@gmail.com">
-        <i class="fas fa-envelope fa-2x text-white hover:text-red-400"></i>
-      </a>
-      
-      <!-- GitHub -->
-      <a href="https://github.com/azubuike321" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github fa-2x text-white hover:text-gray-400"></i>
-      </a>
-      
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/azubuike123_?igsh=MW5lNnpqeDZwaWg0Yg==" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram fa-2x text-white hover:text-pink-500"></i>
-      </a>
-      
-      <!-- Telegram -->
-      <a href="https://t.me/azubuike321" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-telegram fa-2x text-white hover:text-blue-400"></i>
-      </a>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center md:text-right text-sm text-gray-300">
-      © 2025 Egwu Gregory Azubuike. All rights reserved.
-    </div>
-  </div>
-</footer>
