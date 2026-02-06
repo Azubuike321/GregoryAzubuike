@@ -1,0 +1,18 @@
+{
+  "routes": {
+    "route-A::recipient-agent-7": {
+      "routeId": "route-A",
+      "recipientAgentId": "recipient-agent-7",
+      "successCount": 0,
+      "failureCount": 1,
+      "lastAttemptedTimestamp": "2026-02-06T13:34:17.471Z"
+    },
+    "route-B::recipient-agent-7": {
+      "routeId": "route-B",
+      "recipientAgentId": "recipient-agent-7",
+      "successCount": 1,
+      "failureCount": 0,
+      "lastAttemptedTimestamp": "2026-02-06T13:34:17.472Z"
+    }
+  }
+}
